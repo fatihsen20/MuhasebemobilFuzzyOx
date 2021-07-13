@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715373379116",
+    "project_id": "muhasebe-a25d9",
+    "storage_bucket": "muhasebe-a25d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715373379116:android:10c42ff285984cd9d05b89",
+        "android_client_info": {
+          "package_name": "com.example.muhasabe_mobil_fuzzyox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715373379116-fk081uedat4grvak98873nadj0hvla1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEJ-v2zK6lX0CxfpQts6WB1LBF8sWdBfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715373379116-fk081uedat4grvak98873nadj0hvla1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

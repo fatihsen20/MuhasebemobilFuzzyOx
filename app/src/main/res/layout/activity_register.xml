@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:background="@color/registerbgcolor"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/activity_register_myLogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_launcher_background"
+        android:layout_marginTop="5dp"
+        />
+
+    <EditText
+        android:id="@+id/activity_register_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ad:"
+        android:textSize="19sp"
+        android:textStyle="normal"
+        android:textColor="@color/textcolor"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/activity_register_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Soyad:"
+        android:textSize="19sp"
+        android:textStyle="normal"
+        android:textColor="@color/textcolor"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="3dp"
+        />
+
+    <EditText
+        android:id="@+id/activity_register_Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-Mail:"
+        android:textSize="19sp"
+        android:textStyle="normal"
+        android:textColor="@color/textcolor"
+        android:textAlignment="center"
+        android:inputType="textEmailAddress"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="3dp"
+        />
+
+    <EditText
+        android:id="@+id/activity_register_Pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Şifre:"
+        android:textSize="19sp"
+        android:textStyle="normal"
+        android:textColor="@color/textcolor"
+        android:textAlignment="center"
+        android:inputType="textPassword"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="3dp"
+        />
+
+    <EditText
+        android:id="@+id/activity_register_Pass_validation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Şifreyi Yeniden Giriniz :"
+        android:textSize="19sp"
+        android:textStyle="normal"
+        android:textColor="@color/textcolor"
+        android:textAlignment="center"
+        android:inputType="textPassword"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="3dp"
+        />
+
+    <Button
+        android:id="@+id/activity_register_btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Kayıt Ol"
+        android:textSize="19sp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/btncolor"
+        android:background="#FFFFFF"
+        android:onClick="newRegister"
+        />
+
+</LinearLayout>
