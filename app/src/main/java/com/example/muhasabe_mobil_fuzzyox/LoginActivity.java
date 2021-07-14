@@ -17,8 +17,7 @@ import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth ;
-    private FirebaseUser mUser;
-    private FirebaseFirestore firestore;
+    private DBHandler dbHandler;
     private EditText e_mail, pass;
 
     @Override
@@ -28,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
         e_mail = findViewById(R.id.activity_login_Email);
         pass = findViewById(R.id.activity_login_Pass);
-
+        dbHandler = new DBHandler(mAuth);
 
     }
 
@@ -39,11 +38,15 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!TextUtils.isEmpty(txtEmail) && !TextUtils.isEmpty(txtPass)){
 
-            DBHandler dbHandler = new DBHandler(mAuth, mUser, firestore);
             dbHandler.addLogin(txtEmail, txtPass, this);
 
         }
         else
             Toast.makeText(this, "Lütfen Girdileri Boş Bırakmayın!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void forgotPass(View view){
+        Intent intent = new Intent(this, ForgotPass.class);
+        startActivity(intent);
     }
 }

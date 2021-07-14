@@ -5,42 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:orientation="horizontal"
-    android:background="@color/registerbgcolor"
+    android:orientation="vertical"
+    android:background="@color/formbgcolor"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        >
+        <ImageView
+            android:id="@+id/activity_register_myLogo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/general_logo"
+            android:layout_marginTop="5dp"
+            />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/activity_main_btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Giriş Yap"
-        android:textSize="19sp"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="90dp"
-        android:textColor="@color/btncolor"
-        android:background="#FFFFFF"
-        android:onClick="LoginClick"
-        />
-    <Button
-        android:id="@+id/activity_main_btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Kayıt Ol"
-        android:textSize="19sp"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:layout_marginTop="3dp"
-        android:layout_marginRight="90dp"
-        android:layout_marginLeft="40dp"
-        android:textColor="@color/btncolor"
-        android:background="#FFFFFF"
-        android:onClick="RegisterClick"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        tools:ignore="HardcodedText"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/textcolor"
+            android:textAlignment="center"
+            android:text="Hoşgeldiniz. Kayıt Olduysanız Giriş Yapabilirsiniz. Kayıtlı Değilseniz Hemen Kaydolabilirsiniz."
+            />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|bottom"
+        >
+        <Button
+            android:id="@+id/activity_main_btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Giriş Yap"
+            android:textSize="19sp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/btntextcolor"
+            android:background="@drawable/custom_button"
+            android:onClick="LoginClick"
+            android:layout_marginRight="20dp"
+            />
+        <Button
+            android:id="@+id/activity_main_btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Kayıt Ol"
+            android:textSize="19sp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/btntextcolor"
+            android:onClick="RegisterClick"
+            android:background="@drawable/custom_button"
+            />
 
+    </LinearLayout>
 
 </LinearLayout>

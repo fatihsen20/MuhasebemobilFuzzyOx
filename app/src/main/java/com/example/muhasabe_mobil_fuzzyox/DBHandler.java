@@ -1,6 +1,9 @@
 package com.example.muhasabe_mobil_fuzzyox;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,6 +39,11 @@ public class DBHandler {
         this.mAuth = mAuth;
         this.mUser = mUser;
         this.firestore = firestore;
+    }
+
+    public DBHandler(FirebaseAuth mAuth){
+        mAuth = FirebaseAuth.getInstance();
+        this.mAuth = mAuth;
     }
 
     public FirebaseAuth getmAuth() {
@@ -104,6 +112,33 @@ public class DBHandler {
                 Toast.makeText(loginActivity, "E-Posta veya Şifre Yanlış!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void resetPass(String email, Activity activity){
+        getmAuth().sendPasswordResetEmail(email)
+                .addOnCompleteListener(activity , new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(activity, "Şifre Sıfırlama Bağlantısı Gönderildi.", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+                            alert.setTitle("Şifre Sıfırlama İsteği");
+                            alert.setMessage("Sıfırlama Bağlantısı Mail Hesabınıza Gönderildi.");
+                            alert.setCancelable(false);
+                            alert.setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(activity , LoginActivity.class);
+                                    activity.startActivity(intent);
+                                }
+                            });
+                            alert.show();
+                        }
+                        else
+                            Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 
 
