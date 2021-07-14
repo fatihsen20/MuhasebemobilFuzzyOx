@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Muhasabe-mobil-FuzzyOX</string>
+    <string name="app_name">Muhasabe</string>
+    <string name="welcome_text">Hoşgeldiniz. Kayıt Olduysanız Giriş Yapabilirsiniz. Kayıtlı Değilseniz Hemen Kayıt Olabilirsiniz.</string>
 </resources>
