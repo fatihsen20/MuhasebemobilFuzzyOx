@@ -23,7 +23,7 @@
 
         />
     <Button
-        android:id="@+id/activity_register_btnRegister"
+        android:id="@+id/activity_forgot_pass_btnResetpass"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

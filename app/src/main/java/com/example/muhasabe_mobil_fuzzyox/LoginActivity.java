@@ -29,6 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         pass = findViewById(R.id.activity_login_Pass);
         dbHandler = new DBHandler(mAuth);
 
+        Animations.addAnimation(this, R.id.activity_login_myLogo, R.anim.fadein , 1000);
+        Animations.addAnimation(this, R.id.activity_login_linearlayout_text, R.anim.fadein , 1000);
+        Animations.addAnimation(this, R.id.activity_login_btnLogin, R.anim.lefttoright , 1000);
+        Animations.addAnimation(this, R.id.activity_login_btnForgotPass, R.anim.righttoleft , 1000);
+
     }
 
     public void newLogin(View view){

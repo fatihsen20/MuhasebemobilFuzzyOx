@@ -25,6 +25,9 @@ public class ForgotPass extends AppCompatActivity {
 
         email = findViewById(R.id.activity_forgot_pass_email);
         dbHandler = new DBHandler(mAuth);
+
+        Animations.addAnimation(this, R.id.activity_forgot_pass_email, R.anim.fadein , 1000);
+        Animations.addAnimation(this, R.id.activity_forgot_pass_btnResetpass, R.anim.bounce , 1000);
     }
 
     public void ResetPass(View view){

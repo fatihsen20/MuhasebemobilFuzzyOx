@@ -13,7 +13,7 @@
         android:layout_height="200dp"
         >
         <ImageView
-            android:id="@+id/activity_register_myLogo"
+            android:id="@+id/activity_main_myLogo"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
@@ -28,6 +28,7 @@
         tools:ignore="HardcodedText"
         >
         <TextView
+            android:id="@+id/activity_main_txtViewWelcome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"

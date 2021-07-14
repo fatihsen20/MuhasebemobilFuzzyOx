@@ -30,6 +30,10 @@ public class RegisterActivity extends AppCompatActivity {
         pass = findViewById(R.id.activity_register_Pass);
         pass_validation = findViewById(R.id.activity_register_Pass_validation);
 
+        Animations.addAnimation(this, R.id.activity_register_myLogo, R.anim.fadein , 1000);
+        Animations.addAnimation(this, R.id.activity_register_linearLayout_text, R.anim.fadein , 1000);
+        Animations.addAnimation(this, R.id.activity_register_btnRegister, R.anim.bounce , 1000);
+
     }
 
     public void newRegister(View view){

@@ -120,10 +120,9 @@ public class DBHandler {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(activity, "Şifre Sıfırlama Bağlantısı Gönderildi.", Toast.LENGTH_SHORT).show();
                             AlertDialog.Builder alert = new AlertDialog.Builder(activity);
                             alert.setTitle("Şifre Sıfırlama İsteği");
-                            alert.setMessage("Sıfırlama Bağlantısı Mail Hesabınıza Gönderildi.");
+                            alert.setMessage("Şifre Sıfırlama Bağlantısı Mail Hesabınıza Gönderildi.");
                             alert.setCancelable(false);
                             alert.setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
                                 @Override
