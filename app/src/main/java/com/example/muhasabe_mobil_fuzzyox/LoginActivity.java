@@ -11,12 +11,14 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth ;
+    private FirebaseFirestore firestore;
     private DBHandler dbHandler;
     private EditText e_mail, pass;
 
@@ -27,7 +29,8 @@ public class LoginActivity extends AppCompatActivity {
 
         e_mail = findViewById(R.id.activity_login_Email);
         pass = findViewById(R.id.activity_login_Pass);
-        dbHandler = new DBHandler(mAuth);
+
+        dbHandler = new DBHandler(mAuth , firestore);
 
         Animations.addAnimation(this, R.id.activity_login_myLogo, R.anim.fadein , 1000);
         Animations.addAnimation(this, R.id.activity_login_linearlayout_text, R.anim.fadein , 1000);
