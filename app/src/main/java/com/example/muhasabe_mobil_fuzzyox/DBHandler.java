@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -103,7 +105,7 @@ public class DBHandler {
 
 
     }
-    public void addLogin(String email, String pass, LoginActivity loginActivity){
+    public void addLogin(String email, String pass, Activity loginActivity){
 
         getmAuth().signInWithEmailAndPassword(email , pass)
                 .addOnSuccessListener(loginActivity, new OnSuccessListener<AuthResult>() {
@@ -113,7 +115,11 @@ public class DBHandler {
                         E-mail password update işlemi Authentication sekmesinde yapıldığı için firestore üzerinde güncel görünmüyordu.
                         UpdatePass methodu ile bu hata giderildi.
                          */
-                        updatePass(pass, loginActivity, mAuth.getCurrentUser().getUid());
+                        mUser = mAuth.getCurrentUser();
+                        updatePass(pass, loginActivity, mUser.getUid());
+
+                        Intent intent = new Intent(loginActivity , MainMenu.class);
+                        loginActivity.startActivity(intent);
 
                         Toast.makeText(loginActivity, "Giriş Başarılı!", Toast.LENGTH_SHORT).show();
                     }
@@ -177,6 +183,20 @@ public class DBHandler {
                     Toast.makeText(activity, "Kişilerden Silme İşlemi Başarılı!", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(activity, "Kişilerden Silme İşlemi Başarısız!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getData(Activity activity , String uId){
+
+        DocumentReference documentReference = firestore.collection("Kullanıcılar").document(uId);
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+
+                    Toast.makeText(activity, task.getResult().getData().toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
