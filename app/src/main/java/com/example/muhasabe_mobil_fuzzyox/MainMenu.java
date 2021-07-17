@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+
 public class MainMenu extends AppCompatActivity {
 
     private DBHandler dbHandler;
@@ -20,7 +22,7 @@ public class MainMenu extends AppCompatActivity {
     Intent intent;
     private FirebaseFirestore firestore;
     private GridView gridView ;
-    private String[] items = {"deneme1","deneme2", "deneme3", "deneme4", "deneme5", "deneme6",};
+    private String[] items = {"Kişisel Bilgiler","deneme2", "deneme3", "deneme4", "deneme5", "deneme6",};
     private int[] icons = {R.drawable.common_google_signin_btn_icon_dark_normal , R.drawable.common_google_signin_btn_icon_dark,R.drawable.common_google_signin_btn_icon_dark_normal,R.drawable.common_google_signin_btn_icon_dark_normal,R.drawable.common_google_signin_btn_icon_dark_normal,R.drawable.common_google_signin_btn_icon_dark_normal};
     private MainMenuAdapter mainMenuAdapter;
 
@@ -31,9 +33,6 @@ public class MainMenu extends AppCompatActivity {
 
         dbHandler = new DBHandler(mAuth, firestore);
 
-        intent = getIntent();
-
-
         gridView = findViewById(R.id.activity_main_menu_gridItems);
         mainMenuAdapter = new MainMenuAdapter(items , icons , MainMenu.this);
         gridView.setAdapter(mainMenuAdapter);
@@ -41,6 +40,12 @@ public class MainMenu extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (items[position].compareTo("Kişisel Bilgiler") == 0){
+
+                    intent = getIntent();
+                    dbHandler.getData(MainMenu.this,intent.getStringExtra("uId"));
+
+                }
                 Toast.makeText(MainMenu.this, items[position], Toast.LENGTH_SHORT).show();
             }
         });

@@ -21,6 +21,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+
 public class DBHandler {
 
     /*
@@ -115,10 +117,10 @@ public class DBHandler {
                         E-mail password update işlemi Authentication sekmesinde yapıldığı için firestore üzerinde güncel görünmüyordu.
                         UpdatePass methodu ile bu hata giderildi.
                          */
-                        mUser = mAuth.getCurrentUser();
-                        updatePass(pass, loginActivity, mUser.getUid());
+                        updatePass(pass, loginActivity, mAuth.getCurrentUser().getUid());
 
                         Intent intent = new Intent(loginActivity , MainMenu.class);
+                        intent.putExtra("uId" , mAuth.getCurrentUser().getUid());
                         loginActivity.startActivity(intent);
 
                         Toast.makeText(loginActivity, "Giriş Başarılı!", Toast.LENGTH_SHORT).show();
@@ -188,13 +190,12 @@ public class DBHandler {
     }
 
     public void getData(Activity activity , String uId){
-
+        
         DocumentReference documentReference = firestore.collection("Kullanıcılar").document(uId);
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
-
                     Toast.makeText(activity, task.getResult().getData().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
